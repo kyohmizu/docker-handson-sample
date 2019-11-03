@@ -98,11 +98,10 @@ func main() {
 	r.HandleFunc("/{id}", deleteTodo).Methods("DELETE")
 	log.Fatal(http.ListenAndServe(":9999", handlers.CORS(
 		handlers.AllowedOrigins([]string{"*"}),
-		handlers.AllowedMethods([]string{"GET", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"}),
+		handlers.AllowedMethods([]string{"GET", "PUT", "POST", "DELETE"}),
 		handlers.AllowedHeaders([]string{"Origin", "Authorization", "Content-Type"}),
 		handlers.ExposedHeaders([]string{""}),
 		handlers.MaxAge(10),
 		handlers.AllowCredentials(),
 	)(r)))
 }
-
