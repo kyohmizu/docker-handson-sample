@@ -11,6 +11,9 @@ WORKDIR /app
 # package.json、package-lock.json ファイルをコピー
 COPY package*.json ./
 
+# 引数を設定(イメージビルド時に変更可)
+ARG VUE_APP_API_URL="http://localhost:9999"
+
 # 依存関係のあるパッケージをダウンロード
 RUN npm install
 
