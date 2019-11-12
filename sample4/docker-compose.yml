@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  go-api:
+    build: go-api/
+    ports:
+      - "9999:9999"
+  vue:
+    build:
+      context: vue/
+      args:
+        - VUE_APP_API_URL
+    ports:
+      - "8080:8080"
+
